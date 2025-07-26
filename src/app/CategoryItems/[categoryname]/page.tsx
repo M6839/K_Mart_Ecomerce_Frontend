@@ -38,7 +38,7 @@ const SingleCategoryItems = () => {
   return (
     <>
     <ItemsFilter/>
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-white text-black">
       {items.map((item) => (
         <div key={item._id} className="border p-2 shadow hover:shadow-lg rounded cursor-pointer">
           <Image

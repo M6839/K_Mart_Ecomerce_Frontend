@@ -57,7 +57,7 @@ const addToCart = async (productId: string, quantity: number = 1) => {
 
   return (
     <>
-    <div className="p-8 flex flex-col md:flex-row gap-6">
+    <div className="p-8 flex flex-col md:flex-row gap-6 bg-white">
       <Image
         src={`${API_URL}/uploads/${product.image}`}
         alt={product.title}
@@ -66,13 +66,13 @@ const addToCart = async (productId: string, quantity: number = 1) => {
         className="w-full md:w-1/3 h-[400px] object-contain bg-white p-4 rounded-xl shadow-md"
       />
       <div className="flex-1 space-y-4">
-        <h2 className="text-3xl font-semibold">{product.title}</h2>
+        <h2 className="text-3xl font-semibold text-black">{product.title}</h2>
         <p className="text-gray-600">{product.description}</p>
         <p className="text-xl font-bold text-green-600">₹{product.price}</p>
         {/* <p className="text-sm text-yellow-500">
           ⭐ {product.rating.rate} / 5 ({product.rating.count} reviews)
         </p> */}
-        <p className="text-sm bg-blue-100 inline-block px-2 py-1 rounded-md">
+        <p className="text-sm bg-blue-100  text-black inline-block px-2 py-1 rounded-md">
           Category: {product.category}
         </p>
         <br/>

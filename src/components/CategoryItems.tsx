@@ -30,7 +30,7 @@ const CategoryItems = ({ data }: { data: Product[] }) => {
         router.push(`/Product/${id}`)
     }
   return (
-    <div className='px-4'>
+    <div className='px-4 bg-white'>
     <div className='relative w-full'>
         <div ref={scrollRef} className='flex space-x-8 overflow-x-auto scroll-smooth no-scrollbar bg-white py-4'>
             {
