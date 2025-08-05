@@ -10,15 +10,28 @@ import Watches from "@/components/Watches";
 import Kitchen from "@/components/Kitchen"
 import Electronics from "@/components/Electronics";
 import { useContext } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 import { ProductContext } from "@/context/ProductsProvider"
 export default function Home() {
-  const { products }=useContext(ProductContext);
+  const { loading }=useContext(ProductContext);
+  if (loading) {
+    return (
+      <p className="text-black text-center pt-16 text-2xl min-h-screen">Products loading...</p>
+    );
+  }
+
   return (
     <div className="flex flex-col space-y-2">
-      <ItemsFilter/>
-      {!products ?(<p className="text black">products loading..</p>):(
-      <>
-      <Image src={'/banner1.jpg'} alt="banner" width={700} height={200} className="w-full md:h-[250px]"/>
+     <ItemsFilter/>
+     <Slider dots={true} infinite={true} speed={500} slidesToShow={1} slidesToScroll={1} autoplay={true} autoplaySpeed={3000}>
+     <div> <Image src={'/banner1.jpg'} alt="banner" width={700} height={200} className="w-full h-[100px] md:h-[280px]"/></div>
+     <div> <Image src={'/banner2.jpg'} alt="banner" width={700} height={200} className="w-full h-[100px] md:h-[280px]"/></div>
+     <div> <Image src={'/banner3.jpg'} alt="banner" width={700} height={200} className="w-full h-[100px] md:h-[280px]"/></div>
+          <div> <Image src={'/banner4.jpg'} alt="banner" width={700} height={200} className="w-full h-[100px] md:h-[280px]"/></div>
+     </Slider>
       <Mobiles/>
       <Books/>
       <TVs/>
@@ -29,7 +42,6 @@ export default function Home() {
       <MensFashion/>
        <Image src={'/LadiesBanner.gif'} alt="banner" width={700} height={200} className="w-full md:h-[250px]"/>
       <WomensFashion/>
-      </>)}
     </div>
   );
 }

@@ -25,6 +25,7 @@ interface ProductContextType {
   setCartItems: React.Dispatch<React.SetStateAction<CartItem[]>>;
   token?:string,
   user?:User | null,
+  loading:boolean,
   logout: () => void;
 }
 
@@ -38,6 +39,7 @@ export const ProductContext = createContext<ProductContextType>({
     email:'',
     role:''
    },
+   loading:true,
    logout:()=>{}
 });
 
@@ -48,7 +50,7 @@ const ProductsProvider= ({ children}:{children:ReactNode}) => {
   const [cartItems,setCartItems]=useState<CartItem[]>([]);
   const [token,setToken]=useState<string>();
   const [user, setUser] = useState<User | null>(null);
-
+  const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     const userInfo = localStorage.getItem('user');
     if (userInfo) {
@@ -68,6 +70,7 @@ const ProductsProvider= ({ children}:{children:ReactNode}) => {
       const data = await res.json();
       console.log('Fetched products data is:', data);
       setProducts(data.Allproducts); 
+      setLoading(false)
     } catch (err) {
       console.error('Failed to fetch data', err);
     }
@@ -84,7 +87,7 @@ const ProductsProvider= ({ children}:{children:ReactNode}) => {
   },[])
 
   return (
-    <ProductContext.Provider value={{ products,setCartItems,cartItems,token,user,logout}}>
+    <ProductContext.Provider value={{ products,setCartItems,cartItems,loading,token,user,logout}}>
       {children}
     </ProductContext.Provider>
   );

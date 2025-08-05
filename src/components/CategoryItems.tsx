@@ -31,7 +31,7 @@ const CategoryItems = ({ data }: { data: Product[] }) => {
     }
   return (
     <div className='px-4 bg-white'>
-    <div className='relative w-full'>
+    {data && <div className='relative w-full'>
         <div ref={scrollRef} className='flex space-x-8 overflow-x-auto scroll-smooth no-scrollbar bg-white py-4'>
             {
                 data.map((item)=>(
@@ -49,7 +49,7 @@ const CategoryItems = ({ data }: { data: Product[] }) => {
             <FaAngleLeft className='text-xl md:text-5xl  blackdrop-blur-lg bg-white/20 ' onClick={()=>scroll('left')}/>
             <FaAngleRight className='text-xl md:text-5xl   flex-end blackdrop-blur-lg bg-white/30' onClick={()=>scroll('right')}/>
         </div>
-    </div>
+    </div>}
     </div>
   )
 }
