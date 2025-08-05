@@ -36,16 +36,16 @@ export default function Login() {
       <div className="p-4 flex flex-col gap-4 border border-black rounded-[10px] md:w-[400px] mx-auto">
         <input 
           placeholder="Email" 
-          className="h-[40px] border border-black rounded-[10px] px-4" 
+          className="h-[40px] text-black border border-black rounded-[10px] px-4" 
           onChange={e => setForm({ ...form, email: e.target.value })} 
         />
         <input 
           placeholder="Password" 
-          className="h-[40px] border border-black rounded-[10px] px-4" 
+          className="h-[40px] border text-black border-black rounded-[10px] px-4" 
           type="password" 
           onChange={e => setForm({ ...form, password: e.target.value })} 
         />
-        <p>You have no account? Please create <Link href="/Register" className="text-blue-600 underline">here</Link></p>
+        <p className="text-black">You have no account? Please create <Link href="/Register" className="text-blue-600 underline">here</Link></p>
         <button 
           className="bg-blue-600 rounded-[10px] px-4 h-[40px] text-white" 
           onClick={submit}
