@@ -19,7 +19,7 @@ export default function Home() {
   const { loading }=useContext(ProductContext);
   if (loading) {
     return (
-      <p className="text-black text-center pt-16 text-2xl min-h-screen">Products loading...</p>
+      <p className="text-black bg-white text-center pt-16 text-2xl min-h-screen">Products loading...</p>
     );
   }
 

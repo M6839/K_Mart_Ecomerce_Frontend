@@ -152,10 +152,10 @@ const placeOrder = async () => {
 
 
   return (
-    <div className='bg-white min-h-screen border-t-[1px] border-black px-2 md:px-8 py-6'>
-      <h2 className="text-2xl font-bold mb-4">Your Cart</h2>
+    <div className='bg-white text-black min-h-screen border-t-[1px] border-black px-2 md:px-8 py-6'>
+      <h2 className="text-black text-2xl font-bold mb-4">Your Cart</h2>
       {userCart.length === 0 ? (
-        <p>No items in cart.</p>
+        <p className='text-black'>No items in cart.</p>
       ) : (
         <>
           {userCart.map((item) => (
