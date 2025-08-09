@@ -7,10 +7,10 @@ const Navbar = () => {
   const {user,logout} =useContext(ProductContext);
   const [showLogOut,setShowLogOut]=useState(false);
   return (
-    <div className='flex items-center text-black justify-between px-2 md:px-16 shadow-md py-4 bg-white'>
+    <div className='flex items-center text-black justify-between px-2 md:px-16 shadow-2xl py-4 bg-white  border-b-2 border-b-gray-100 '>
       <div>
         <Link href='/'>
-          <h1 className='text-[20px] md:text-[32px] font-bold text-black'>K-MART</h1>
+          <h1 className='text-[20px] md:text-[32px] font-bold text-green-500'>K-MART</h1>
         </Link>
       </div>
       <div>
@@ -27,10 +27,10 @@ const Navbar = () => {
           </Link>
         )}
         
-        {user && <h1 className='flex items-center text-black gap-2 text-xl cursor-pointer' onClick={()=>setShowLogOut(!showLogOut)}><FaRegUserCircle className='text-black'/>{user.username}</h1>}
+        {user && <h1 className='flex items-center text-black gap-2 text-xl cursor-pointer' onClick={()=>setShowLogOut(!showLogOut)}><FaRegUserCircle className='text-green-500'/>{user.username}</h1>}
         {showLogOut && <h1 className='text-red-500 cursor-pointer' onClick={logout}>Log Out</h1>}
         <Link href='/Cart'>
-          <h4 className='text-black'>CART</h4>
+          <h4 className='text-green-500'>CART</h4>
         </Link>
       </div>
     </div>
